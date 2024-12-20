@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+        <script type="text/javascript">
+            function popup() {
+                alert("Registration successful");
+            }
+        </script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="../static/fonts/register/linearicons/style.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="../static/css/style_register.css">
+	</head>
+
+	<body>
+        <main>
+            {% block main %} {% endblock %}
+        </main>
+
+		
+		<script src="../static/js/jquery-3.3.1.min.js"></script>
+		<script src="../static/js/main.js"></script>
+	</body>
+</html>

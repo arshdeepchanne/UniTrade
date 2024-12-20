@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  EzyMarket: Order Placed!
+{% endblock %}
+
+{%  block main %}
+<div class="container-fluid" style="padding: 32px;">
+    <div class="container text-center">
+        <h1>Thank you!</h1>
+        <p class="lead w-lg-50 mx-auto"><b>Your order has been successfully recorded!.</b></p>
+        <p class="w-lg-50 mx-auto">Please contact the seller, following are the details:</p>
+        <ul>
+            <li>
+                Product name: {{ order_info.pname }}
+            </li>
+            <li>
+                Cost: {{ order_info.cost }}
+            </li>
+            <li>
+                Seller: {{ order_info.uname }}
+            </li>
+            <li>
+                Seller UID/email: <i><a href="mailto:{{ order_info.uid }}.cuchd.in ">{{ order_info.uid }}.cuchd.in</a></i>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

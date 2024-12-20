@@ -1,0 +1,55 @@
+Initialize flask application:-
+set FLASK_APP=application.py
+$env:FLASK_APP = "application.py"
+
+Run Flask app:-
+flask run
+
+users table desc:-
+CREATE TABLE users(id INTEGER NOT NULL AUTO_INCREMENT, uid VARCHAR(20) NOT NULL, name TEXT NOT NULL, hash TEXT NOT NULL, PRIMARY KEY(id));
+
+CREATE UNIQUE INDEX uid on users(uid);
+ALTER TABLE users AUTO_INCREMENT=0;
+
+desc products:-
+CREATE TABLE products(product_id INT, name VARCHAR(20), cost FLOAT, 
+category VARCHAR(20), image_path TEXT, PRIMARY KEY(product_id));
+
+desc transactions:-
+create table transactions (order_id INT AUTO_INCREMENT not null, 
+buyer_id INT not null, 
+seller_id INT not null, 
+product_id INT not null, 
+primary key(order_id), 
+foreign key (buyer_id) references users(id),
+foreign key (seller_id) references users(id), 
+foreign key (product_id) references products(product_id));
+
+
+insert into products values(1, "T-Shirt", 300, "clothing", "../static/images/t-shirt_1.webp");
+insert into products values(2, "Pants", 700, "clothing", "../static/images/pants.jpeg");
+insert into products values(3, "Jacket", 600, "clothing", "../static/images/Jacket.jpeg");
+insert into products values(4, "notebook", 250, "clothing", "../static/images/dress.jpeg");
+
+insert into products values(5, "Phone", 5000, "electronics", "../static/images/phone_1.webp");
+insert into products values(6, "Earphones", 200, "electronics", "../static/images/earphones2.png");
+insert into products values(7, "TWS Earphones", 700, "electronics", "../static/images/earphones1.jpeg");
+insert into products values(8, "Phone", 2500, "electronics", "../static/images/phone_2.webp");
+
+insert into products values(9, "Sling Bag", 500, "accessories", "../static/images/sling.jpeg");
+insert into products values(10, "Sling Bag", 400, "accessories", "../static/images/sling1.jpeg");
+insert into products values(11, "Shoulder Bag", 700, "accessories", "../static/images/backpack1.jpg");
+insert into products values(12, "Phone Cover", 100, "accessories", "../static/images/cover.jpeg");
+
+insert into products values(13, "Art Tool Kit", 300, "stationary", "../static/images/art.jpeg");
+insert into products values(14, "Pencil Stand", 150, "stationary", "../static/images/stand.jpeg");
+insert into products values(15, "Notebook", 80, "stationary", "../static/images/notebook1.jpeg");
+insert into products values(16, "Sticky Notes", 50, "stationary", "../static/images/notes.jpeg");
+
+
+product_ids = SELECT product_id FROM cart WHERE user_id=(%s)
+
+select users.id, users.name, users.uid, 
+    products.* from users, products 
+        where products.product_id in (9, 2, 6) 
+            and users.id in (products.seller_id);

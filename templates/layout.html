@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/static/images/favicon.ico" rel="icon">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  a {
+    text-decoration: none;
+  }
+  .w3-sidebar a {
+    font-family: "Roboto", sans-serif;
+  }
+  body,h1,h2,h3,h4,h5,h6,.w3-wide {
+    font-family: "Montserrat", sans-serif;
+  }
+</style>
+</head>
+<body class="w3-content" style="max-width:1200px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h3 class="w3-wide"><b>
+      <a href="/">
+        <img src="../static/images/ezymarket-high-resolution-logo-black-transparent.png" width="150pt">
+      </a>
+    </b></h3>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a href="/clothing" class="w3-bar-item w3-button">Clothing</a>
+    <a href="/electronics" class="w3-bar-item w3-button">Electronics</a>
+    <a href="/accessories" class="w3-bar-item w3-button">Accessories</a>
+    <a href="/stationary" class="w3-bar-item w3-button">Stationary</a>
+  </div>
+  <!-- <a href="#footer" class="w3-bar-item w3-button w3-padding">Account</a>  -->
+  <!-- <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>  -->
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('contact').style.display='block'">Contact Us</a> 
+  <a href="/logout" class="w3-bar-item w3-button w3-padding">Log out</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+  <div class="w3-bar-item w3-padding-24 w3-wide">
+    <a href="/">
+      <img src="../static/images/ezymarket-high-resolution-logo-white-transparent.png" width="150pt">
+    </a>
+  </div>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:250px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+    <p class="w3-left"><a href="/">EzyMarket</a></p>
+    <p class="w3-right">
+      <a href="/cart">
+        <i class="fa fa-shopping-cart w3-margin-right"></i>
+      </a>
+    </p>
+  </header>
+  
+  <main>
+   {% block main %}{% endblock %}
+  </main>
+  
+  <!-- Footer -->
+  <footer class="w3-padding-64 w3-black w3-small w3-center" id="footer">
+   <div class="w3-row-padding">
+     <div class="w3-col s4">
+      <br>
+       <img src="../static/images/ezymarket-high-resolution-logo-white-transparent.png" width="300">
+     </div>
+
+     <div class="w3-col s4">
+       <h4>Categories</h4>
+       <p><a href="/clothing">Clothing</a></p>
+       <p><a href="/electronics">Electronics</a></p>
+       <p><a href="/accessories">Accessories</a></p>
+       <p><a href="/stationary">Stationary</a></p>
+     </div>
+
+     <div class="w3-col s4 w3-justify">
+       <h4>Contact DSW</h4>
+       <p><i class="fa fa-fw fa-map-marker"><a href="https://maps.app.goo.gl/u9PknZo8gcAqiJnp8"></i>Chandigarh University</a></p>
+       <p><i class="fa fa-fw fa-phone"><a href="tel:1800 121 288 800"></i>1800 121 288 800</a></p>
+       <p><i class="fa fa-fw fa-envelope"><a href="mailto:director.sw@cumail.in"></i>director.sw@cumail.in</a></p>
+       <br>
+       <!-- <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+       <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+       <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+       <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
+       <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+       <i class="fa fa-linkedin w3-hover-opacity w3-large"></i> -->
+     </div>
+   </div>
+ </footer>
+
+ <!-- End page content -->
+</div>
+
+<!-- Contact Us Modal -->
+<div id="contact" class="w3-modal">
+ <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+   <div class="w3-container w3-white w3-center">
+     <i onclick="document.getElementById('contact').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+     <h2 class="w3-wide">Contact Us</h2>
+     <p>Need help with anything? Or want to sell your own product?</p>
+     <p><b>Get in touch with us:</b></p>
+     <p><i><a href="mailto:arshdeep.channe@gmail.com">Arshdeep Singh: arshdeep.channe@gmail.com</a></i></p>
+     <p><i><a href="mailto:updeshkb12@gmail.com">Updesh Kaur: updeshkb12@gmail.com</a></i></p>
+     <p><i><a href="mailto:aryanverma4141@gmail.com">Aryan Verma: aryanverma4141@gmail.com</a></i></p>
+     <p><i><a href="mailto:rishikadhiman2003@gmail.com">Rishika: rishikadhiman2003@gmail.com</a></i></p>
+     <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('contact').style.display='none'">Close</button>
+   </div>
+ </div>
+</div>
+
+<script>
+// Open and close sidebar
+function w3_open() {
+ document.getElementById("mySidebar").style.display = "block";
+ document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+ document.getElementById("mySidebar").style.display = "none";
+ document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>

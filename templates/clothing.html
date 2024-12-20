@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  EzyMarket: Clothing
+{% endblock %}
+
+{% block main %}
+  <!-- Image header -->
+  <div class="w3-display-container w3-container">
+    <img src="../static/images/clothing.webp" alt="Clothing" style="width:100%">
+    <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+      <h1 class="w3-jumbo w3-hide-small w3-text-black">Clothing</h1>
+      <h1 class="w3-hide-large w3-hide-medium">Clothing</h1>
+      <!-- <h1 class="w3-hide-small">COLLECTION 2016</h1> -->
+      <p><a href="#content" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
+    </div>
+  </div>
+
+  <div class="w3-container w3-text-black" id="content">
+    <p>Clothing</p>
+  </div>
+  
+    <!-- Product grid -->
+    <div class="w3-row w3-grayscale">
+      {% for cloth in clothing %}
+      <div class="w3-col l3 s6">
+        <div class="w3-container">
+          <div class="w3-display-container">
+            <img src="{{ cloth.image_path }}" style="width:100%">
+            <div class="w3-display-middle w3-display-hover">
+              <form action="/cart" method="post">
+                <input type="hidden" name="form_id" value="{{ cloth.product_id }}">
+                <button class="w3-button w3-black" type="submit">Add to cart <i class="fa fa-shopping-cart"></i></button>
+              </form>
+            </div>
+          </div>
+          <p>{{ cloth.name }}<br><b class="w3-text-red">{{ cloth.cost }}</b></p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endblock %}

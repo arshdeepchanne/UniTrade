@@ -1,0 +1,41 @@
+{% extends "layout_auth.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+
+		<div class="wrapper">
+			<div class="inner">
+				<!-- <img src="../static/images/image-1.png" alt="" class="image-1"> -->
+				<img src="../static/images/image-2.png" alt="" class="image-1">
+
+				<h3>Login</h3>
+				<form action="/login" method="post">
+					<div class="form-holder">
+						<span class="lnr lnr-user"></span>
+						<input autocomplete="off" autofocus type="text" class="form-control" name="uid" placeholder="UID">
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" name="password" class="form-control" placeholder="Password">
+					</div>
+                    <div class="text-right p-t-13 p-b-23">
+						<span class="txt1">
+							New user?
+						</span>
+
+						<a href="/register" class="txt2">
+							Register
+						</a>
+					</div> 
+					<button type="submit">
+                        <!-- <a href="index.html"/> -->
+						<span>Login</span>
+					</button>
+				</form>
+				<!-- <img src="../static/images/image-2.png" alt="" class="image-2"> -->
+			</div>
+		</div>
+{% endblock %}
